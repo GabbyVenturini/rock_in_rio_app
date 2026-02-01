@@ -1,16 +1,43 @@
-# app
+# Rock in Rio Flutter App
 
-A new Flutter project.
+🎸 Aplicativo Flutter inspirado no festival Rock in Rio, exibindo atrações com efeito **Glassmorphism**. O layout é **responsivo**, adaptando-se a celulares, tablets, desktops e dispositivos com telas grandes.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🖼️ Features
 
-A few resources to get you started if this is your first Flutter project:
+- Grid de atrações com cards dinâmicos  
+- Efeito **Glassmorphism** nos cards  
+- Layout **responsivo** para múltiplos tamanhos de tela  
+- Tags das atrações (Palco, Rumor)  
+- Rolagem suave e agradável  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📱 Dispositivos suportados
+
+- iPhone SE, XR, 12 Pro, 14 Pro Max  
+- Samsung Galaxy S8+, S20 Ultra, Galaxy A51/71  
+- Google Pixel 7  
+- iPads (Mini, Air, Pro)  
+- Surface Pro 7, Surface Duo  
+- Nest Hub, Nest Hub Max  
+- Dispositivos dobráveis (Galaxy Z Fold 5, Asus Zenbook Fold)  
+
+---
+
+## 🛠️ Tecnologias
+
+- Flutter (Material 3)  
+- Dart  
+- Widgets personalizados com **BackdropFilter** para Glassmorphism  
+- Grid responsivo usando **LayoutBuilder** e **GridView.builder**  
+
+---
+
+## 🚀 Como rodar o projeto
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/GabbyVenturini/rock_in_rio_app.git

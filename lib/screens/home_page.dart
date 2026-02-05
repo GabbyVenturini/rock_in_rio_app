@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 import '../data/lista_atracoes.dart';
+import '../widgets/app_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -11,6 +12,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  // ⭐ FAVORITOS (fica fora do build)
+  final Set<String> _favoritos = {};
+
+  bool isFavorito(String nome) {
+    return _favoritos.contains(nome);
+  }
+
+  void toggleFavorito(String nome) {
+    setState(() {
+      if (_favoritos.contains(nome)) {
+        _favoritos.remove(nome);
+      } else {
+        _favoritos.add(nome);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        drawer: const AppDrawer(),
         appBar: AppBar(
           toolbarHeight: 100,
           backgroundColor: Colors.black,
@@ -55,11 +75,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisCount;
 
               final alturaCard =
-              constraints.maxWidth < 600 ? larguraCard / 2.6 : larguraCard / 3;
+              constraints.maxWidth < 600
+                  ? larguraCard / 2.6
+                  : larguraCard / 3;
 
-              final fontSizeTitulo = constraints.maxWidth < 400 ? 18.0 : 23.0;
-              final fontSizeSubtitulo = constraints.maxWidth < 400 ? 12.0 : 16.0;
-              final chipFontSize = constraints.maxWidth < 400 ? 10.0 : 14.0;
+              final fontSizeTitulo =
+              constraints.maxWidth < 400 ? 18.0 : 23.0;
+              final fontSizeSubtitulo =
+              constraints.maxWidth < 400 ? 12.0 : 16.0;
+              final chipFontSize =
+              constraints.maxWidth < 400 ? 10.0 : 14.0;
 
               return GridView.builder(
                 itemCount: listaAtracoes.length,
@@ -88,13 +113,34 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              atracao.nome,
-                              style: TextStyle(
-                                fontSize: fontSizeTitulo,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
+                            // 🔥 NOME + FAVORITO
+                            Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    atracao.nome,
+                                    style: TextStyle(
+                                      fontSize: fontSizeTitulo,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    isFavorito(atracao.nome)
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: isFavorito(atracao.nome)
+                                        ? Colors.redAccent
+                                        : Colors.white70,
+                                  ),
+                                  onPressed: () =>
+                                      toggleFavorito(atracao.nome),
+                                ),
+                              ],
                             ),
                             const SizedBox(height: 6),
                             Text(
@@ -113,8 +159,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     (tag) => Chip(
                                   label: Text(
                                     tag,
-                                    style:
-                                    TextStyle(fontSize: chipFontSize),
+                                    style: TextStyle(
+                                        fontSize: chipFontSize),
                                   ),
                                 ),
                               )

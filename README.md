@@ -10,19 +10,7 @@
 - Efeito **Glassmorphism** nos cards  
 - Layout **responsivo** para múltiplos tamanhos de tela  
 - Tags das atrações (Palco, Rumor)  
-- Rolagem suave e agradável  
-
----
-
-## 📱 Dispositivos suportados
-
-- iPhone SE, XR, 12 Pro, 14 Pro Max  
-- Samsung Galaxy S8+, S20 Ultra, Galaxy A51/71  
-- Google Pixel 7  
-- iPads (Mini, Air, Pro)  
-- Surface Pro 7, Surface Duo  
-- Nest Hub, Nest Hub Max  
-- Dispositivos dobráveis (Galaxy Z Fold 5, Asus Zenbook Fold)  
+- Rolagem suave e agradável   
 
 ---
 
